@@ -1,4 +1,4 @@
-export function markupGallery(arr) {
+function markupGallery(arr) {
     return arr.map(({ preview, original, description }) => `
    <li class="gallery__item">
    <a class="gallery__link" href="${original}">
@@ -7,3 +7,7 @@ export function markupGallery(arr) {
 </li>
     `).join('')
 };
+
+
+
+export { markupGallery };
