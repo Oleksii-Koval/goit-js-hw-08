@@ -1,14 +1,12 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
-// console.log(throttle)
-const iFrameEl = document.querySelector('iframe')
-// console.dir(iFrameEl)
 
+const iFrameEl = document.querySelector('iframe')
+
+const LS_KEY = "videoplayer-current-time";
 
 const player = new Player(iFrameEl);
 
-// player.on('timeupdate', )
-const LS_KEY = "videoplayer-current-time";
 
 const onPlay = function(data) {
     localStorage.setItem(LS_KEY, JSON.stringify(data.seconds))
@@ -20,7 +18,7 @@ player.on('timeupdate', throttleOnPlay);
 
 
 const saveTime = localStorage.getItem(LS_KEY)
-console.log(saveTime)
+// console.log(saveTime)
 
 player.setCurrentTime(JSON.parse(saveTime)).then(function(seconds) {
     // seconds = the actual time that the player seeked to
@@ -35,5 +33,3 @@ player.setCurrentTime(JSON.parse(saveTime)).then(function(seconds) {
             break;
     }
 });
-
-player.on('play', onPlay);
