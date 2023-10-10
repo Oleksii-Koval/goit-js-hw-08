@@ -47,12 +47,24 @@ function fillForm() {
 function handlerSubmit(e) {
     e.preventDefault();
 
-   
-        console.log(dataObj);
+    if (selectors.emailEl.value === '' || selectors.messageEl.value === '') {
+        alert('Please fill in all fields of the form')
+    } else {
+    dataObj = JSON.parse(localStorage.getItem(DATA_KEY)) ?? {};
+    console.log('obj',dataObj);
     
     
-    // localStorage.removeItem(DATA_KEY);
+    selectors.emailEl.value = '';
+    selectors.messageEl.value = '';
+    
+    
+    localStorage.removeItem(DATA_KEY);
+    }
+
+
+    
 }
+
 
 
 
