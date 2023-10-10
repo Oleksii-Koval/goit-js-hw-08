@@ -18,7 +18,7 @@ fillForm()
 
 
 function handlerInput() {
-    const data = {
+     const data = {
         email: selectors.emailEl.value.trim(),
         message: selectors.messageEl.value.trim(),
     }
